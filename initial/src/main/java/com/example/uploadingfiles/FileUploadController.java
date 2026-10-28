@@ -58,6 +58,7 @@ public class FileUploadController {
         if (file == null)
             return ResponseEntity.notFound().build();
 
+        // Set the Content-Disposition header to indicate that the file should be downloaded as an attachment
         return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION,
                 "attachment; filename=\"" + file.getFilename() + "\"").body(file);
     }
